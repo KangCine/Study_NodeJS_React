@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-
-const { User } = require('./model.User');
+const bodyParser = require('body-parser');
+const { User } = require('./model/User');
 
 // application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
