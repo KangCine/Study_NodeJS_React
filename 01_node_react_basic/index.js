@@ -52,11 +52,11 @@ app.post('/api/users/login', (req, res) => {
       // 비밀번호까지 일치하다면 해당 유저 Token 생성.
       user.generateToken((err, user) => {
         if (err) return res.status(400).send(err);
-
+        
         // 토큰을 저장한다. ( 쿠키, 로컬스토리지 등에 저장할수 있는데 일단 쿠키에함..)
         res.cookie('x_auth', user.token)
-        .status(200)
-        .json({ loginSuccess: true, userId: user._id })
+          .status(200)
+          .json({ loginSuccess: true, userId: user._id })
       })
     })
   })
@@ -77,6 +77,15 @@ app.get('/api/users/auth', auth, (req, res) => {
   });
 
 });
+
+app.get('/api/users/logout', auth, (req, res) => {
+  User.findOneAndUpdate({ _id: req.user._id }, { token: "" }, (err, user) => {
+      if (err) return res.json({ success: false, err });
+      return res.status(200).send({
+        success: true
+      })
+    })
+})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`)
