@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
-const port = 3000;
-const bodyParser = require('body-parser');
-const { User } = require('./model/User');
 const config = require('./config/key');
+const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const { User } = require('./model/User');
 const { auth } = require('./middleware/auth');
+
+const port = 5000;
 
 // application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,6 +22,10 @@ mongoose.connect(config.mongoURI)
 
 app.get('/', (req, res) => {
   res.send('Hello, Express!');
+})
+
+app.get('/api/hello', (req, res) => {
+  res.send("안녕하세요!");
 })
 
 app.post('/api/users/register', (req, res) => {

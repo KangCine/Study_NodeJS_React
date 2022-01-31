@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+import LandingPage from './components/views/LandingPage/LandingPage';
+import RegisterPage from './components/views/RegisterPage/RegisterPage';
+import LoginPage from './components/views/LoginPage/LoginPage';
+import NavBar from './components/views/NavBar/NavBar';
+import Footer from './components/views/Footer/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello, React!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
+          <Route exact path="/RegisterPage" component={RegisterPage} />
+          <Route exact path="/LoginPage" component={LoginPage} />
+          <Route exact path="/NavBar" component={NavBar} />
+          <Route exact path="/Footer" component={Footer} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
