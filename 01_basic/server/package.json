@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "backend": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run backend\" \"npm run start --prefix ../client\""
   },
   "author": "cine",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.1",
+    "concurrently": "^7.0.0",
     "cookie-parser": "^1.4.6",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
