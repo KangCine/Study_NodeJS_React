@@ -39,8 +39,9 @@ function RegisterPage(props) {
 
         dispatch(registerUser(body))
         .then(response => {
+            // 회원가입에 성공하면 로그인 페이지로 이동 / 실패하면 에러메세지 발생
             if(response.payload.success){
-                props.history.push('/loginPage')
+                props.history.push('/login')
             } else {
                 alert('Error')
             }

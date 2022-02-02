@@ -16,13 +16,14 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <LandingPage />
-          </Route>
-          <Route exact path="/RegisterPage" component={RegisterPage} />
-          <Route exact path="/LoginPage" component={LoginPage} />
-          <Route exact path="/NavBar" component={NavBar} />
-          <Route exact path="/Footer" component={Footer} />
+          </Route> */}
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/register" component={RegisterPage} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/navBar" component={NavBar} />
+          <Route exact path="/footer" component={Footer} />
         </Switch>
       </div>
     </Router>
