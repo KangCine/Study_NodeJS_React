@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 const mongoose = require('mongoose');
+// mongodb+srv://cine:cine@cluster0.7sr4t.mongodb.net/myFirstDatabase
 mongoose.connect(config.mongoURI)
   .then(() => console.log('MongoDB Connected...'))
   .catch(arr => console.log(arr))
