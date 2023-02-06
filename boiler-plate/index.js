@@ -3,6 +3,8 @@ const app = express();
 const port = 7777;
 const bodyParser = require('body-parser');
 const { User } = require('./models/User');
+const mongoose = require('mongoose');
+const config = require('./config/key')
 
 // application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -10,8 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // application/json
 app.use(bodyParser.json());
 
-const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://cine:cine@cluster0.7sr4t.mongodb.net/myFirstDatabase?appName=mongosh+1.6.2', {
+mongoose.connect(config.mongoURI, {
     useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 }).then(() => console.log('MongoDB Connected...'))
     .catch(err => console.log(err))
