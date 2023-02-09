@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const { User } = require('./model/User');
 const { auth } = require('./middleware/auth');
 
-const port = 5000;
+const port = 7070;
 
 // application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
